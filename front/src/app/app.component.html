@@ -1,0 +1,6 @@
+<input [(ngModel)]="newList" placeholder="TODO List" type="text" value="" class="new-list-input" />
+<button (click)="createList()" class="btn-primary">Crear</button>
+<div *ngFor="let list of lists">
+  <app-todo-list [id]="list.id" [name]="list.name" [items]="list.activity" (delete)="deleteList($event)">
+  </app-todo-list>
+</div>

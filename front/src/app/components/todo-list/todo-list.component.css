@@ -1,0 +1,12 @@
+.todo-list__name {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  
+  .todo-list > * {
+    margin-bottom: 15px;
+  }
+  
+  .todo-list__name h2 {
+    margin: 0;
+  }

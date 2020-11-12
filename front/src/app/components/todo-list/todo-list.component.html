@@ -1,0 +1,35 @@
+<div class="todo-list">
+  <div class="todo-list__name">
+      <h2>{{name}}</h2>
+      <button (click)="onDelete()" class="btn-danger">Eliminar</button>
+  </div>
+  
+  <input [(ngModel)]="task" placeholder="¿Qué piensas hacer hoy?"  type="text" value="" />
+  <button [hidden]="taskUpdated !== null" (click)="addToList()" class="btn-primary">
+    Crear
+  </button>
+  <button [hidden]="taskUpdated === null" (click)="updateTask()" class="btn-primary">
+    Actualizar
+  </button>
+  
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Tarea</td>
+      <td>¿Completado?</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of items; let index = index;"
+      [ngStyle]="{'text-decoration':task.completed?'line-through':'none'}">
+      <td>{{index+1}}</td>
+      <td>{{task.name}}</td>
+      <td><input type="checkbox" [checked]="task.completed" (change)="checkTask(index)" /> </td>
+      <td><button (click)="deleteTask(index)" class="btn-danger">Eliminar</button></td>
+      <td><button (click)="editTask(index)" class="btn-primary">Editar</button></td>
+    </tr>
+  </tbody>
+</table>
